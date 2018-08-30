@@ -51,11 +51,22 @@ function social_media_links_extra_social_media_links_iconset_info() {
  * @param null $style
  * @return string
  */
-function social_media_links_extra_icon_fontawesome($platform, $style = NULL) {
-    if ($platform == 'email') $platform = 'envelope-o';
-    if ($platform == 'contact') $platform = 'envelope-o';
-    if ($platform == 'telegram') $platform = 'paper-plane-o';
+function social_media_links_extra_icon_fontawesome($platform, $style = NULL, $iconset = 'fab') {
+    if ($platform == 'email') {
+    		$platform = 'envelope';
+    		$iconset = 'fas';
+    }
+    if ($platform == 'contact') {
+    		$platform = 'envelope';
+    		$iconset = 'fas';
+    }
+    if ($platform == 'telegram') {
+    		$platform = 'paper-plane';
+    		$iconset = 'fas';
+    }
+    if ($platform == 'rss') $iconset = 'fas';
     if ($platform == 'googleplus') $platform = 'google-plus';
+    if ($platform == 'youtube_channel') $platform = 'youtube';
 
-    return "<i class=\"fa fa-{$platform}\"></i>";
+    return "<i class=\"$iconset fa-{$platform}\"></i>";
 }
