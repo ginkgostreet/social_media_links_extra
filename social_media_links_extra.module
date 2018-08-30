@@ -37,7 +37,19 @@ function social_media_links_extra_social_media_links_iconset_info() {
         'publisher' => 'FontAwesome',
         'publisher url' => 'http://fontawesome.io',
         'styles' => array(
-            'responsive' => 'responsive'
+            'fa-xs' => 'X-Small',
+            'fa-sm' => 'Small',
+            NULL => 'Regular',
+            'fa-lg' => 'Large',
+            'fa-2x' => '2x',
+            'fa-3x' => '3x',
+            'fa-4x' => '4x',
+            'fa-5x' => '5x',
+            'fa-6x' => '6x',
+            'fa-7x' => '7x',
+            'fa-8x' => '8x',
+            'fa-9x' => '9x',
+            'fa-10x' => '10x',
         ),
         'icon callback' => 'social_media_links_extra_icon_fontawesome',
         'download url' => 'http://fontawesome.io/#modal-download',
@@ -51,7 +63,7 @@ function social_media_links_extra_social_media_links_iconset_info() {
  * @param null $style
  * @return string
  */
-function social_media_links_extra_icon_fontawesome($platform, $style = NULL, $iconset = 'fab') {
+function social_media_links_extra_icon_fontawesome($platform, $style, $iconset = 'fab') {
     if ($platform == 'email') {
     		$platform = 'envelope';
     		$iconset = 'fas';
@@ -68,5 +80,5 @@ function social_media_links_extra_icon_fontawesome($platform, $style = NULL, $ic
     if ($platform == 'googleplus') $platform = 'google-plus';
     if ($platform == 'youtube_channel') $platform = 'youtube';
 
-    return "<i class=\"$iconset fa-{$platform}\"></i>";
+    return "<i class=\"$iconset fa-{$platform} $style\"></i>";
 }
