@@ -1,0 +1,4 @@
+name = Social Meida Links Extra
+description = Add new features to social media links module (fontawesome support, new social networks support)
+core = 7.x
+dependencies[] = social_media_links

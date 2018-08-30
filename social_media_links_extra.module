@@ -1,0 +1,61 @@
+<?php
+/**
+ * Implements hook_social_media_links_platform_info().
+ */
+function social_media_links_extra_social_media_links_platform_info() {
+    $platforms = array();
+
+    // Telegram support
+    $platforms['telegram'] = array(
+        'title' => t('Telegram'),
+        'base url' => 'http://telegram.me/',
+    );
+
+    return $platforms;
+}
+
+/**
+ * Defines the available iconsets.
+ *
+ * @return array
+ *   An associative array whose keys define the key for the iconset
+ *   and contains information about the icons for the platforms. Each
+ *   iconset deinition is itself an associative array, with the
+ *   following key-value pairs:
+ *   - name: The name of the iconset.
+ *   - publisher: The name of the publisher.
+ *   - publisher url: The url for further informations about the iconset.
+ *   - styles: The available sizes/styles for the iconset.
+ *   - path callback: The name of the callback function that returns the
+ *     image urls.
+ *   - download url: The url to download the iconset.
+ */
+function social_media_links_extra_social_media_links_iconset_info() {
+    // Simple example for a iconset definition.
+    $icons['fontawesome'] = array(
+        'name' => 'FontAwesome',
+        'publisher' => 'FontAwesome',
+        'publisher url' => 'http://fontawesome.io',
+        'styles' => array(
+            'responsive' => 'responsive'
+        ),
+        'icon callback' => 'social_media_links_extra_icon_fontawesome',
+        'download url' => 'http://fontawesome.io/#modal-download',
+    );
+
+    return $icons;
+}
+
+/**
+ * @param $platform
+ * @param null $style
+ * @return string
+ */
+function social_media_links_extra_icon_fontawesome($platform, $style = NULL) {
+    if ($platform == 'email') $platform = 'envelope-o';
+    if ($platform == 'contact') $platform = 'envelope-o';
+    if ($platform == 'telegram') $platform = 'paper-plane-o';
+    if ($platform == 'googleplus') $platform = 'google-plus';
+
+    return "<i class=\"fa fa-{$platform}\"></i>";
+}
